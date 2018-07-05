@@ -80,6 +80,8 @@ The txt file containing the encrypted password for the user account.
 ```
 Connect to the SMTP server using SSL.
 
+### Example
+
 ```
 Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L E:\scripts -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
 ```
