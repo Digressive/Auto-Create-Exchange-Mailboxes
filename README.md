@@ -1,4 +1,5 @@
 # Auto Create Exchange Mailboxes
+
 PowerShell script to create Exchange Mailboxes for users in an OU structure.
 
 Auto Create Exchange Mailboxes can also be downloaded from:
@@ -9,7 +10,7 @@ Auto Create Exchange Mailboxes can also be downloaded from:
 
 -Mike
 
-Tweet me if you have questions: [@Digressive](https://twitter.com/digressive)
+Tweet me if you have questions: [@mikegalvin_](https://twitter.com/mikegalvin_)
 
 ## Features and Requirements
 
