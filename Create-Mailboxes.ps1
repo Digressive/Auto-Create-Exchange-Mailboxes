@@ -51,13 +51,13 @@
     $creds = Get-Credential
     $creds.Password | ConvertFrom-SecureString | Set-Content c:\foo\ps-script-pwd.txt
     
-    .PARAMETER Ou
+    .PARAMETER ou
     The AD Organisational Unit (including child OUs) that contains the users to create Exchange Mailboxes for.
 
     .PARAMETER Datab
     The Exchange database to create the mailboxes in. If you do not configure a Database, the smallest database will be used.
 
-    .PARAMETER Rp
+    .PARAMETER rp
     The retention policy that should be applied to the users.
     
     .PARAMETER Compat
@@ -86,12 +86,12 @@
     Connect to the SMTP server using SSL.
 
     .EXAMPLE
-    Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L E:\scripts -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
+    Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
 
     This will create mailboxes for users that do not already have one in the OU NewUsers and all child OUs.
     It will create the mailbox using Mail DB 2 and apply the retention policy "1-Month-Deleted-Items".
     If you do not configure a Database, the smallest database will be used.
-    A log will be output to E:\scripts and e-mail using a secure connection.
+    A log will be output to C:\scripts\logs and e-mail using a secure connection.
 
     The powershell code to get the smallest database is by Jason Sherry: https://blog.jasonsherry.net/2012/03/25/script_smallest_db/.
 #>
@@ -99,11 +99,11 @@
 [CmdletBinding()]
 Param(
     [parameter(Mandatory=$True)]
-    [alias("Ou")]
+    [alias("ou")]
     $OrganisationalUnit,
     [alias("Datab")]
     $Database,
-    [alias("Rp")]
+    [alias("rp")]
     $Retention,
     [alias("L")]
     $LogPath,
@@ -137,7 +137,6 @@ $UsersNo = Get-ADUser -SearchBase $OrganisationalUnit -Filter * -Properties mail
 ## If users exist without mailboxes run the script
 If ($UsersNo.count -ne 0)
 {
-
     ## If logging is configured, start log
     If ($LogPath)
     {
@@ -164,7 +163,7 @@ If ($UsersNo.count -ne 0)
     {
         ForEach ($User in $Users)
         {
-            If ($(Get-ADUser $User -Properties mail).mail -eq $null)
+            If ($null -eq $(Get-ADUser $User -Properties mail).mail)
             {
                 Enable-Mailbox -Identity $User.SamAccountName -Database $Database -RetentionPolicy $Retention
 
@@ -184,12 +183,12 @@ If ($UsersNo.count -ne 0)
 
         ForEach ($MBXDB in $MBXDbs)
         {
-            $TotalItemSize = Get-MailboxStatistics -Database $MBXDB | %{$_.TotalItemSize.Value.ToMB()} | Measure-Object -sum
-            $TotalDeletedItemSize = Get-MailboxStatistics -Database $MBXDB.DistinguishedName | %{$_.TotalDeletedItemSize.Value.ToMB()} | Measure-Object -sum
+            $TotalItemSize = Get-MailboxStatistics -Database $MBXDB | ForEach-Object {$_.TotalItemSize.Value.ToMB()} | Measure-Object -sum
+            $TotalDeletedItemSize = Get-MailboxStatistics -Database $MBXDB.DistinguishedName | ForEach-Object {$_.TotalDeletedItemSize.Value.ToMB()} | Measure-Object -sum
      
             $TotalDBSize = $TotalItemSize.Sum + $TotalDeletedItemSize.Sum
 
-            If (($TotalDBSize -lt $SmallestDBsize) -or ($SmallestDBsize -eq $null))
+            If (($TotalDBSize -lt $SmallestDBsize) -or ($null -eq $SmallestDBsize))
             {
                 $SmallestDBsize = $TotalDBSize
                 $SmallestDB = $MBXDB
@@ -199,7 +198,7 @@ If ($UsersNo.count -ne 0)
         ## For each user that does not have a mailbox, create one and set the retention policy if it has been specified
         ForEach ($User in $Users)
         {
-            If ($(Get-ADUser $User -Properties mail).mail -eq $null)
+            If ($null -eq $(Get-ADUser $User -Properties mail).mail)
             {
                 Enable-Mailbox -Identity $User.SamAccountName -Database $SmallestDB -RetentionPolicy $Retention
 

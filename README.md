@@ -37,7 +37,7 @@ After running the commands, you will have a text file containing the encrypted p
 
 Here’s a list of all the command line switches and example configurations.
 ```
--Ou
+-ou
 ```
 The AD Organisational Unit (including child OUs) that contains the users to create Exchange Mailboxes for.
 ```
@@ -45,7 +45,7 @@ The AD Organisational Unit (including child OUs) that contains the users to crea
 ```
 The Exchange database to create the mailboxes in. If you do not configure a Database, the smallest database will be used.
 ```
--Rp
+-rp
 ```
 The retention policy that should be applied to the users.
 ``` 
@@ -84,7 +84,7 @@ Connect to the SMTP server using SSL.
 ### Example
 
 ```
-Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L E:\scripts -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
+Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
 ```
 
-This will create mailboxes for users that do not already have one in the OU NewUsers and all child OUs. It will create the mailbox using Mail DB 2 and apply the retention policy "1-Month-Deleted-Items". If you do not configure a Database, the smallest database will be used. A log will be output to E:\scripts and e-mail using a secure connection. The powershell code to get the smallest database is by Jason Sherry: https://blog.jasonsherry.net/2012/03/25/script_smallest_db/.
+This will create mailboxes for users that do not already have one in the OU NewUsers and all child OUs. It will create the mailbox using Mail DB 2 and apply the retention policy "1-Month-Deleted-Items". If you do not configure a Database, the smallest database will be used. A log will be output to C:\scripts\logs and e-mail using a secure connection. The powershell code to get the smallest database is by Jason Sherry: https://blog.jasonsherry.net/2012/03/25/script_smallest_db/.
