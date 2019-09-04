@@ -26,7 +26,7 @@ The password used for SMTP server authentication must be in an encrypted text fi
 
 Please note: This is only required if you need to authenticate to the SMTP server when send the log via e-mail.
 
-```
+``` powershell
 $creds = Get-Credential
 $creds.Password | ConvertFrom-SecureString | Set-Content c:\scripts\ps-script-pwd.txt
 ```
@@ -36,55 +36,83 @@ After running the commands, you will have a text file containing the encrypted p
 ### Configuration
 
 Here’s a list of all the command line switches and example configurations.
+
+``` txt
+-OU
 ```
--ou
-```
+
 The AD Organisational Unit (including child OUs) that contains the users to create Exchange Mailboxes for.
-```
+
+``` txt
 -Datab
 ```
+
 The Exchange database to create the mailboxes in. If you do not configure a Database, the smallest database will be used.
+
+``` txt
+-RP
 ```
--rp
-```
+
 The retention policy that should be applied to the users.
-``` 
+
+``` txt
 -Compat
 ```
+
 Use this switch if you are using Exchange 2010.
-```
+
+``` txt
 -L
 ```
+
 The path to output the log file to. The file name will be "Create-Mailboxes.log"
+
+``` txt
+-Subject
 ```
+
+The email subject that the email should have. Encapulate with single or double quotes.
+
+``` txt
 -SendTo
 ```
+
 The e-mail address the log should be sent to.
-```
+
+``` txt
 -From
 ```
+
 The from address the log should be sent from.
-```
+
+``` txt
 -Smtp
 ```
+
 The DNS name or IP address of the SMTP server.
-```
+
+``` txt
 -User
 ```
+
 The user account to connect to the SMTP server.
-```
+
+``` txt
 -Pwd
 ```
+
 The txt file containing the encrypted password for the user account.
-```
+
+``` txt
 -UseSsl
 ```
+
 Connect to the SMTP server using SSL.
 
 ### Example
 
-```
-Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
+``` txt
+Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Subject 'Server: Created Mailboxes' -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
 ```
 
-This will create mailboxes for users that do not already have one in the OU NewUsers and all child OUs. It will create the mailbox using Mail DB 2 and apply the retention policy "1-Month-Deleted-Items". If you do not configure a Database, the smallest database will be used. A log will be output to C:\scripts\logs and e-mail using a secure connection. The powershell code to get the smallest database is by Jason Sherry: https://blog.jasonsherry.net/2012/03/25/script_smallest_db/.
+This will create mailboxes for users that do not already have one in the OU NewUsers and all child OUs. It will create the mailbox using Mail DB 2 and apply the retention policy "1-Month-Deleted-Items". If you do not configure a database, the smallest database will be used. A log will be output to C:\scripts\logs and e-mailed with a custom subject line, using a secure connection.
