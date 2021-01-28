@@ -2,7 +2,7 @@
 
 PowerShell script to create Exchange Mailboxes for users in an OU structure.
 
-For full instructions and documentation, [visit my blog post](https://gal.vin/2017/06/07/powershell-create-mailboxes)
+For full instructions and documentation, [visit my blog post](https://gal.vin/posts/powershell-create-mailboxes)
 
 Please consider donating to support my work:
 
