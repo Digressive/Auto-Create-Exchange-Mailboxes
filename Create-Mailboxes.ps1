@@ -14,7 +14,7 @@
 
 .LICENSEURI
 
-.PROJECTURI https://gal.vin/2017/06/07/powershell-create-mailboxes
+.PROJECTURI https://gal.vin/posts/powershell-create-mailboxes
 
 .ICONURI
 
