@@ -11,10 +11,9 @@ Please consider donating to support my work:
 
 Auto Create Exchange Mailboxes can also be downloaded from:
 
-* [The Microsoft TechNet Gallery](https://gallery.technet.microsoft.com/scriptcenter/Create-Exchange-Mailboxes-3b54f12c?redir=0)
 * [The PowerShell Gallery](https://www.powershellgallery.com/packages/Create-Mailboxes)
 
-Tweet me if you have questions: [@mikegalvin_](https://twitter.com/mikegalvin_)
+Join the [Discord](http://discord.gg/5ZsnJ5k) or Tweet me if you have questions: [@mikegalvin_](https://twitter.com/mikegalvin_)
 
 -Mike
 
