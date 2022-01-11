@@ -19,7 +19,7 @@ Join the [Discord](http://discord.gg/5ZsnJ5k) or Tweet me if you have questions:
 
 ## Features and Requirements
 
-* The script will run the WSUS server cleanup process, which will delete obsolete updates, as well as declining expired and superseded updates.
+* The script will run the WSUS server clean-up process, which will delete obsolete updates, as well as declining expired and superseded updates.
 * The script can optionally create a log file and e-mail the log file to an address of your choice.
 * The script can be run locally on a WSUS server, or on a remote sever.
 * The script requires that the WSUS management tools be installed.
@@ -76,7 +76,7 @@ The path to output the log file to. The file name will be "Create-Mailboxes.log"
 -Subject
 ```
 
-The email subject that the email should have. Encapulate with single or double quotes.
+The email subject that the email should have. Encapsulate with single or double quotes.
 
 ``` txt
 -SendTo
