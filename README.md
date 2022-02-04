@@ -117,7 +117,7 @@ Connect to the SMTP server using SSL.
 ### Example
 
 ``` txt
-Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Subject 'Server: Created Mailboxes' -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp.live.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
+Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Subject 'Server: Created Mailboxes' -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp-mail.outlook.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
 ```
 
 This will create mailboxes for users that do not already have one in the OU NewUsers and all child OUs. It will create the mailbox using Mail DB 2 and apply the retention policy "1-Month-Deleted-Items". If you do not configure a database, the smallest database will be used. A log will be output to C:\scripts\logs and e-mailed with a custom subject line, using a secure connection.
