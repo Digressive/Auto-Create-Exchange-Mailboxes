@@ -18,7 +18,7 @@
 
 .ICONURI
 
-.EXTERNALMODULEDEPENDENCIES Exchange Management PowerShell module. Active Directory Management PowerShell module.
+.EXTERNALMODULEDEPENDENCIES
 
 .REQUIREDSCRIPTS
 
