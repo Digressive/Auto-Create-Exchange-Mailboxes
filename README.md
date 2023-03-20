@@ -25,7 +25,7 @@ Please report issues on Github via the issues tab.
 * The script requires that the WSUS management tools be installed.
 * The script has been tested on Windows 10 and Windows Server 2016.
 
-### Generating A Password File
+## Generating A Password File For SMTP Authentication
 
 The password used for SMTP server authentication must be in an encrypted text file. To generate the password file, run the following command in PowerShell, on the computer that is going to run the script and logged in with the user that will be running the script. When you run the command you will be prompted for a username and password. Enter the username and password you want to use to authenticate to your SMTP server.
 
@@ -38,7 +38,7 @@ $creds.Password | ConvertFrom-SecureString | Set-Content c:\scripts\ps-script-pw
 
 After running the commands, you will have a text file containing the encrypted password. When configuring the -Pwd switch enter the path and file name of this file.
 
-### Configuration
+## Configuration
 
 Here’s a list of all the command line switches and example configurations.
 
@@ -114,7 +114,7 @@ The txt file containing the encrypted password for the user account.
 
 Connect to the SMTP server using SSL.
 
-### Example
+## Example
 
 ``` txt
 Create-Mailboxes.ps1 -Ou "OU=NewUsers,OU=Dept,DC=contoso,DC=com" -Datab "Mail DB 2" -Rp "1-Month-Deleted-Items" -L C:\scripts\logs -Subject 'Server: Created Mailboxes' -Sendto me@contoso.com -From Exch01@contoso.com -Smtp smtp-mail.outlook.com -User Exch01@contoso.com -Pwd P@ssw0rd -UseSsl
