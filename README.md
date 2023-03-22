@@ -13,7 +13,7 @@ Auto Create Exchange Mailboxes can also be downloaded from:
 
 * [The PowerShell Gallery](https://www.powershellgallery.com/packages/Create-Mailboxes)
 
-Please report issues on Github via the issues tab.
+Please report any problems via the ‘issues’ tab on GitHub.
 
 -Mike
 
