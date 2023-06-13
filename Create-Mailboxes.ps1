@@ -4,13 +4,13 @@
 
 .GUID 2905a44a-0932-41e9-9d09-b6339a9f0143
 
-.AUTHOR Mike Galvin Contact: mike@gal.vin / twitter.com/mikegalvin_ / discord.gg/5ZsnJ5k
+.AUTHOR Mike Galvin Contact: mike@gal.vin 
 
 .COMPANYNAME Mike Galvin
 
 .COPYRIGHT (C) Mike Galvin. All rights reserved.
 
-.TAGS Exchange Mailbox Active Directory Syncronization
+.TAGS Exchange Mailbox Active Directory Synchronization
 
 .LICENSEURI
 
@@ -37,7 +37,7 @@
 
     This script will:
     
-    Create mailboxes for users contained witin an OU tree.
+    Create mailboxes for users contained within an OU tree.
     You can configure the database and retention policy to use.
     Output and e-mail a log file.
 
@@ -68,7 +68,7 @@
     The file name will be "Create-Mailboxes.log"
     
     .PARAMETER Subject
-    The email subject that the email should have. Encapulate with single or double quotes.
+    The email subject that the email should have. Encapsulate with single or double quotes.
 
     .PARAMETER SendTo
     The e-mail address the log should be sent to.
