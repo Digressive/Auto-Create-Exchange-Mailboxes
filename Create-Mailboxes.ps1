@@ -12,7 +12,7 @@
 
 .TAGS Exchange Mailbox Active Directory Synchronization
 
-.LICENSEURI
+.LICENSEURI https://github.com/Digressive/Auto-Create-Exchange-Mailboxes?tab=MIT-1-ov-file
 
 .PROJECTURI https://gal.vin/posts/powershell-create-mailboxes
 
