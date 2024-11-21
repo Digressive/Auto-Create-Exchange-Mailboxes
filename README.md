@@ -4,13 +4,14 @@ PowerShell script to create Exchange Mailboxes for users in an OU structure.
 
 For full instructions and documentation, [visit my blog post](https://gal.vin/posts/powershell-create-mailboxes)
 
-Please consider donating to support my work:
-
-* You can support me with a one-time payment [using PayPal](https://www.paypal.me/digressive)
-
 Auto Create Exchange Mailboxes can also be downloaded from:
 
 * [The PowerShell Gallery](https://www.powershellgallery.com/packages/Create-Mailboxes)
+
+Please consider supporting my work:
+
+* Support with [Github Sponsors](https://github.com/sponsors/Digressive).
+* Support with a one-time donation using [PayPal](https://www.paypal.me/digressive).
 
 Please report any problems via the ‘issues’ tab on GitHub.
 
